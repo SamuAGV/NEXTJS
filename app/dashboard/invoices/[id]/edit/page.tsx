@@ -2,7 +2,16 @@ import Form from '@/app/ui/invoices/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Edit Invoice',
+    default: 'Edit Invoice',
+  },
+  description: 'Edit your invoice details in the dashboard.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
  
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
